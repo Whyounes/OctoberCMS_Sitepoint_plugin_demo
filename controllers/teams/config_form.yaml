@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Team
+
+# Model Form Field configuration
+form: $/rafie/sitepointdemo/models/team/fields.yaml
+
+# Model Class name
+modelClass: Rafie\SitepointDemo\Models\Team
+
+# Default redirect location
+defaultRedirect: rafie/sitepointdemo/teams
+
+# Create page
+create:
+    title: Create Team
+    redirect: rafie/sitepointdemo/teams/update/:id
+    redirectClose: rafie/sitepointdemo/teams
+
+# Update page
+update:
+    title: Edit Team
+    redirect: rafie/sitepointdemo/teams
+    redirectClose: rafie/sitepointdemo/teams
+
+# Preview page
+preview:
+    title: Preview Team

@@ -1,0 +1,18 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    # id:
+    #     label: ID
+    #     disabled: true
+    name:
+        label: Name
+        type: text
+    users:
+        label: Users
+        type: checkboxlist
+    # users:
+    #     label: Users
+    #     type: relation
+    #     nameFrom: login

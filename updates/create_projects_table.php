@@ -14,7 +14,7 @@ class CreateProjectsTable extends Migration
             $table->increments('id');
             $table->string('name', 100);
             $table->text('description');
-            $table->date('ends_at');
+            $table->datetime('ends_at');
             $table->integer('team_id')->unsigned();
             $table->timestamps();
         });

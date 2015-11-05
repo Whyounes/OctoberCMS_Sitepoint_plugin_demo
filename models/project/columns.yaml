@@ -6,3 +6,15 @@ columns:
     id:
         label: ID
         searchable: true
+    name:
+        label: Name
+    description:
+        label: Description
+        type: text
+    ends_at:
+        label: End At
+        type: datetime
+    team:
+        label: Team
+        relation: team
+        select: name

@@ -1,0 +1,10 @@
+scopes:
+    team:
+        label: Team
+        modelClass: \Rafie\SitepointDemo\Models\Team
+        nameFrom: name
+        conditions: team_id = :filtered
+    hide_past_due:
+        label: Hide past due
+        type: checkbox
+        conditions: ends_at > now()

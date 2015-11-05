@@ -23,6 +23,8 @@ class Project extends Model
      */
     protected $fillable = [];
 
+    protected $dates = ['ends_at'];
+
     /**
      * @var array Relations
      */
@@ -38,4 +40,15 @@ class Project extends Model
     public $attachOne = [];
     public $attachMany = [];
 
+    public function getTeamIdOptions()
+    {
+        $teams = \Rafie\SitepointDemo\Models\Team::all(['id', 'name']);
+        $teamsOptions = [];
+
+        $teams->each(function($team) use (&$teamsOptions) {
+            $teamsOptions[$team->id] = $team->name;
+        });
+
+        return $teamsOptions;
+    }
 }

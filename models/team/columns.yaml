@@ -6,3 +6,10 @@ columns:
     id:
         label: ID
         searchable: true
+    name:
+        label: Name
+    users:
+        label: Users
+        relation: users
+        select: login
+        searchable: false

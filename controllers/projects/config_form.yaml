@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Project
+
+# Model Form Field configuration
+form: $/rafie/sitepointdemo/models/project/fields.yaml
+
+# Model Class name
+modelClass: Rafie\SitepointDemo\Models\Project
+
+# Default redirect location
+defaultRedirect: rafie/sitepointdemo/projects
+
+# Create page
+create:
+    title: Create Project
+    redirect: rafie/sitepointdemo/projects/update/:id
+    redirectClose: rafie/sitepointdemo/projects
+
+# Update page
+update:
+    title: Edit Project
+    redirect: rafie/sitepointdemo/projects
+    redirectClose: rafie/sitepointdemo/projects
+
+# Preview page
+preview:
+    title: Preview Project

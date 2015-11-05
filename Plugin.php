@@ -25,8 +25,18 @@ class Plugin extends PluginBase
 
     public function boot()
     {
-         \Backend\Models\User::extend(function($model){
+        \Backend\Models\User::extend(function($model){
             $model->belongsTo['team'] = ['Rafie\SitepointDemo\Models\Team'];
+        });
+
+        \Backend\Controllers\Users::extendListColumns(function ($list) {
+            $list->addColumns([
+                'team' => [
+                    'label' => 'Team',
+                    'relation' => 'team',
+                    'select' => 'name'
+                ]
+            ]);
         });
     }
 }

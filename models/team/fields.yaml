@@ -9,10 +9,7 @@ fields:
     name:
         label: Name
         type: text
+        required: true
     users:
         label: Users
         type: checkboxlist
-    # users:
-    #     label: Users
-    #     type: relation
-    #     nameFrom: login

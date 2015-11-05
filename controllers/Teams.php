@@ -23,6 +23,16 @@ class Teams extends Controller
         BackendMenu::setContext('Rafie.SitepointDemo', 'sitepointdemo', 'teams');
     }
 
+    public function formExtendFields($form)
+    {
+        if( $form->getContext() === 'update')
+        {
+            $team = $form->model;
+            $userField = $form->getField('users');
+            $userField->value = $team->users->lists('id');
+        }
+    }
+
     public function create_onSave()
     {
         $inputs = post('Team');
@@ -37,37 +47,27 @@ class Teams extends Controller
                             ->update(['team_id' => $teamModel->id]);
 
         \Flash::success("Team saved successfully");
-        
+
         return $this->makeRedirect('update', $teamModel);
     }
 
-    public function update_onSave($recordId)
+    public function update_onSave($recordId, $context = null)
     {
         $inputs = post('Team');
 
-        // update team
-        $teamModel = \Rafie\SitepointDemo\Models\Team::findOrFail($recordId);
-        $teamModel->name = $inputs['name'];
-        $teamModel->save();
-
-        \Backend\Models\User::where('team_id', $teamModel->id)
+        \Backend\Models\User::where('team_id', $recordId)
                             ->update(['team_id' => 0]);
 
         // update users team_id
         \Backend\Models\User::whereIn('id', $inputs['users'])
-                            ->update(['team_id' => $teamModel->id]);
+                            ->update(['team_id' => $recordId]);
 
-        \Flash::success("Team updated successfully");
+        $this->asExtension('FormController')->update_onSave($recordId, $context);
     }
 
-    public function update_onDelete($recordId)
+    public function formAfterDelete($model)
     {
-        $teamModel = \Rafie\SitepointDemo\Models\Team::findOrFail($recordId);
-        \Backend\Models\User::where('team_id', $teamModel->id)
+        \Backend\Models\User::where('team_id', $model->id)
                             ->update(['team_id' => 0]);
-        $teamModel->delete();
-        \Flash::success("Team deleted successfully");
-
-        return $this->makeRedirect('delete', $teamModel);
     }
 }

@@ -23,6 +23,20 @@ class Plugin extends PluginBase
         ];
     }
 
+    public function registerPermissions()
+    {
+        return [
+            'rafie.sitepointDemo.manage_teams' => [
+                'label' => 'Manage Teams',
+                'tab' => 'SitepointDemo'
+            ],
+            'rafie.sitepointDemo.manage_projects' => [
+                'label' => 'Manage Projects',
+                'tab' => 'SitepointDemo'
+            ]
+        ];
+    }
+
     public function boot()
     {
         \Backend\Models\User::extend(function($model){

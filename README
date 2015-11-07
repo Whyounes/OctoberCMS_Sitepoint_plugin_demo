@@ -1,3 +1,17 @@
 ## Demo plugin
 
 This is a demo plugin for my OctoberCMS CRUD article for Sitepoint.
+
+You can use the `UniqueValue` form widget like the following:
+
+```yaml
+// fields.yaml
+
+fields:
+    slug:
+        label: Slug
+        type: \Rafie\SitepointDemo\FormWidgets\UniqueValue
+        modelClass: \RainLab\Blog\Models\Post
+        selectFrom: slug
+        pattern: text
+```

@@ -1,0 +1,23 @@
+<?php if ($this->previewMode): ?>
+
+    <div class="form-control">
+        <?= $value ?>
+    </div>
+
+<?php else: ?>
+    <div class="input-group">
+        <input
+            type="<?= $inputType ?>"
+            id="<?= $this->getId('input') ?>"
+            name="<?= $name ?>"
+            value="<?= $value ?>"
+            class="form-control unique_widget"
+            autocomplete="off"
+            data-request="<?= $this->getEventHandler('onChange') ?>"
+            data-track-input="500"
+            data-request-success="uniqueInputChanged($el, context, data, textStatus, jqXHR);"
+        />
+        <span class="input-group-addon oc-icon-remove"></span>
+    </div>
+
+<?php endif ?>

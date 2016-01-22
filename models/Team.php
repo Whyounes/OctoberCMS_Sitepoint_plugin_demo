@@ -41,13 +41,6 @@ class Team extends Model
 
     public function getUsersOptions()
     {
-        $users = \Backend\Models\User::all(['id', 'login']);
-        $usersOptions = [];
-
-        $users->each(function($user) use (&$usersOptions) {
-            $usersOptions[$user->id] = $user->login;
-        });
-        
-        return $usersOptions;
+        return \Backend\Models\User::lists('login', 'id');
     }
 }

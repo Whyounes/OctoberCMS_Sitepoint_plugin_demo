@@ -1,4 +1,5 @@
 1.0.1: 
     - First version of sitepoint_demo
+    - add_team_to_users.php
     - create_teams_table.php
     - create_projects_table.php

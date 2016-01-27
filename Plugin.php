@@ -53,4 +53,17 @@ class Plugin extends PluginBase
             ]);
         });
     }
+
+    /**
+     * Registers any form widgets implemented in this plugin.
+     */
+    public function registerFormWidgets()
+    {
+        return [
+            'Rafie\SitepointDemo\FormWidgets\UniqueValue' => [
+                'label' => 'Unique Value',
+                'code' => 'uniquevalue'
+            ],
+        ];
+    }
 }

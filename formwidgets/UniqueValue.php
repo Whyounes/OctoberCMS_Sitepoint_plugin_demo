@@ -47,8 +47,9 @@ class UniqueValue extends FormWidgetBase
     public function onChange()
     {
         $formFieldValue = post($this->formField->getName());
+        $query = $this->model->newQuery();
         $modelRecords = call_user_func_array("{$this->modelClass}::where", [$this->selectFrom, $formFieldValue]);
-        
+
         return ['exists' => (boolean) $modelRecords->count()];
     }
 
